@@ -49,6 +49,11 @@ export default function Form({ stepNumber, setStepNumber }: StepListProps) {
     }
   };
 
+  const handleStep = () => {
+    console.log("click");
+    stepNumber < 4 && setStepNumber(stepNumber + 1);
+  };
+
   return (
     <>
       <section className="flex flex-col w-full justify-between px-16 py-9">
@@ -65,9 +70,7 @@ export default function Form({ stepNumber, setStepNumber }: StepListProps) {
           </button>
           <button
             className="bg-marineBlue text-white px-6 py-3 rounded-lg font-semibold text-sm"
-            onClick={() => {
-              stepNumber < 4 && setStepNumber(stepNumber + 1);
-            }}
+            onClick={handleStep}
           >
             {stepNumber === 4 ? "Submit" : "Next Step"}
           </button>
