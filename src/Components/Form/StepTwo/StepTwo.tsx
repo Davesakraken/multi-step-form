@@ -1,6 +1,6 @@
 import { useState } from "react";
 import BillingPeriodToggle from "@/src/Components/BillingPeriodToggle/BillingPeriodToggle";
-import PricingCard from "@/src/Components/common/PricingCard";
+import PricingCard from "@/src/Components/Form/StepTwo/PricingCard";
 
 export default function StepTwo() {
   const [billingPeriod, setBillingPeriod] = useState<"monthly" | "yearly">("monthly");

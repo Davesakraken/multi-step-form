@@ -19,7 +19,10 @@ const PricingCard: React.FC<PricingCardProps> = ({
   features,
 }) => {
   return (
-    <div className="w-[130px] min-h-[170px] cursor-pointer border border-lightGray p-4 rounded-lg flex flex-col justify-between">
+    <div
+      className="w-[130px] min-h-[170px] cursor-pointer border border-lightGray p-4 rounded-lg flex flex-col justify-between"
+      onClick={() => console.log("clicked")}
+    >
       <Image src={iconPath} width={40} height={40} alt={""} />
       <div>
         <h2>{title}</h2>
