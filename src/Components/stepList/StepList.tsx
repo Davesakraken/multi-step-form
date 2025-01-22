@@ -17,7 +17,7 @@ export default function StepList({ stepNumber }: StepListProps) {
           key={idx}
           className={clsx(
             stepNumber === idx + 1 && `${styles.stepItemHighlight}`,
-            `${styles.stepListItem} flex gap-4`
+            `${styles.stepListItem} flex gap-4 pb-5`
           )}
         >
           <div className="flex flex-col">
