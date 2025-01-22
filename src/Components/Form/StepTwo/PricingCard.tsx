@@ -1,5 +1,7 @@
 import React from "react";
 import Image from "next/image";
+import clsx from "clsx";
+import classes from "@/src/Components/Form/StepTwo/PricingCard.module.scss";
 
 interface PricingCardProps {
   iconPath: string;
@@ -8,6 +10,8 @@ interface PricingCardProps {
   billingPeriod: "monthly" | "yearly";
   currency?: string;
   features?: string[];
+  setSelectedPlan: (plan: string) => void;
+  selectedPlan: string;
 }
 
 const PricingCard: React.FC<PricingCardProps> = ({
@@ -17,16 +21,22 @@ const PricingCard: React.FC<PricingCardProps> = ({
   billingPeriod,
   currency = "$",
   features,
+  setSelectedPlan,
+  selectedPlan,
 }) => {
   return (
-    <div
-      className="w-[130px] min-h-[170px] cursor-pointer border border-lightGray p-4 rounded-lg flex flex-col justify-between"
-      onClick={() => console.log("clicked")}
+    <button
+      type="button"
+      aria-pressed={selectedPlan === title}
+      className={clsx({ [classes.active]: selectedPlan === title }, classes.card, "p-4 rounded-lg")}
+      onClick={() => {
+        setSelectedPlan(title);
+      }}
     >
-      <Image src={iconPath} width={40} height={40} alt={""} />
+      <Image src={iconPath} width={40} height={40} alt={iconPath.replace(/^.*?\//, "")} />
       <div>
-        <h2>{title}</h2>
-        <p className="text-sm">
+        <h2 className="text-left">{title}</h2>
+        <p className="text-sm text-left">
           {currency}
           {price}
           {billingPeriod === "monthly" ? "/mo" : "/yr"}
@@ -36,7 +46,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
             features?.map((feature, index) => <li key={index}>{feature}</li>)}
         </ul>
       </div>
-    </div>
+    </button>
   );
 };
 
