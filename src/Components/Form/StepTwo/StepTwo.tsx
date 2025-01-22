@@ -1,9 +1,10 @@
 import { useState } from "react";
 import BillingPeriodToggle from "@/src/Components/BillingPeriodToggle/BillingPeriodToggle";
-import PricingCard from "@/src/Components/common/PricingCard";
+import PricingCard from "@/src/Components/Form/StepTwo/PricingCard";
 
 export default function StepTwo() {
   const [billingPeriod, setBillingPeriod] = useState<"monthly" | "yearly">("monthly");
+  const [selectedPlan, setSelectedPlan] = useState<string>("");
 
   const handlePrice = (monthlyPrice: number, YearlyPrice: number) =>
     billingPeriod === "monthly" ? monthlyPrice : YearlyPrice;
@@ -17,6 +18,8 @@ export default function StepTwo() {
           features={["2 months free"]}
           iconPath={"images/arcade-icon.svg"}
           billingPeriod={billingPeriod}
+          setSelectedPlan={setSelectedPlan}
+          selectedPlan={selectedPlan}
         />
         <PricingCard
           title="Advanced"
@@ -24,6 +27,8 @@ export default function StepTwo() {
           features={["2 months free"]}
           iconPath={"images/advanced-icon.svg"}
           billingPeriod={billingPeriod}
+          setSelectedPlan={setSelectedPlan}
+          selectedPlan={selectedPlan}
         />
         <PricingCard
           title="Pro"
@@ -31,11 +36,11 @@ export default function StepTwo() {
           features={["2 months free"]}
           iconPath={"images/pro-icon.svg"}
           billingPeriod={billingPeriod}
+          setSelectedPlan={setSelectedPlan}
+          selectedPlan={selectedPlan}
         />
       </section>
-      <section>
-        <BillingPeriodToggle setBillingPeriod={setBillingPeriod} />
-      </section>
+      <BillingPeriodToggle setBillingPeriod={setBillingPeriod} />
     </form>
   );
 }

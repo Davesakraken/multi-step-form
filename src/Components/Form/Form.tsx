@@ -1,7 +1,7 @@
 import StepFour from "@/src/Components/Form/StepFour";
 import StepOne from "@/src/Components/Form/StepOne";
 import StepThree from "@/src/Components/Form/StepThree";
-import StepTwo from "@/src/Components/Form/StepTwo";
+import StepTwo from "@/src/Components/Form/StepTwo/StepTwo";
 import { Dispatch, SetStateAction } from "react";
 import FormStep from "./FormStep";
 
