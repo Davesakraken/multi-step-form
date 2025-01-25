@@ -9,7 +9,7 @@ interface Props {
 
 function Addon({ title, description, price }: Props) {
   return (
-    <button className="w-full min-h-20 border rounded-lg border-lightGray flex items-center justify-between p-4">
+    <button className="w-full min-h-16 border rounded-lg border-lightGray flex items-center justify-between p-4">
       <div className="flex items-center">
         <div className="m-3 mr-5">
           <MyCoolTickBox />

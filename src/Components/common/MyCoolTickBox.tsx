@@ -10,8 +10,8 @@ function MyCoolTickBox({ isActive }: Props) {
   return (
     <>
       {isActive ? (
-        <div className="w-6 h-6 flex items-center justify-center bg-purplishBlue rounded-md">
-          <Image src="/images/checkmark-icon.svg" alt="Tick" width={14} height={14} />
+        <div className="w-[22px] h-[22px] flex items-center justify-center bg-purplishBlue rounded-md">
+          <Image src="/images/checkmark-icon.svg" alt="Tick" width={13} height={13} />
         </div>
       ) : (
         <div className="w-6 h-6 flex items-center justify-center rounded-md border-lightGray border"></div>
