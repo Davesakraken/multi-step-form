@@ -1,0 +1,21 @@
+.addon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: theme("padding.4");
+  width: 100%;
+  min-height: 4rem;
+  border: 1px solid theme("colors.lightGray");
+  transition: all 0.2s ease;
+  border-radius: theme("borderRadius.lg");
+
+  &:hover {
+    border-color: theme("colors.purplishBlue");
+  }
+}
+
+.active {
+  border: 1px solid theme("colors.purplishBlue");
+  background-color: theme("colors.magnolia");
+  transition: all 0.2s ease;
+}

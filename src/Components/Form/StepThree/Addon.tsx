@@ -1,18 +1,34 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import MyCoolTickBox from "@/src/Components/common/MyCoolTickBox";
+import clsx from "clsx";
+import classes from "@/src/Components/Form/StepThree/Addon.module.scss";
 
 interface Props {
   title: string;
   description: string;
   price: number;
+  selected: { selectedAddons: string[]; setSelectedAddons: Dispatch<SetStateAction<string[]>> };
 }
 
-function Addon({ title, description, price }: Props) {
+function Addon({ title, description, price, selected }: Props) {
+  const addons = selected.selectedAddons;
+  const activeAddon = addons?.includes(title);
+  const setAddons = selected.setSelectedAddons;
+
+  const handleSelectAddon = () => {
+    addons.includes(title)
+      ? setAddons(addons.filter((item) => item !== title))
+      : setAddons([...addons, title]);
+  };
+
   return (
-    <button className="w-full min-h-16 border rounded-lg border-lightGray flex items-center justify-between p-4">
+    <button
+      className={clsx({ [classes.active]: activeAddon }, classes.addon)}
+      onClick={handleSelectAddon}
+    >
       <div className="flex items-center">
         <div className="m-3 mr-5">
-          <MyCoolTickBox />
+          <MyCoolTickBox isActive={activeAddon} />
         </div>
         <div className="flex flex-col items-start">
           <h2 className="text-lg text-marineBlue font-bold">{title}</h2>
