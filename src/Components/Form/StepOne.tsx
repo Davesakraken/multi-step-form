@@ -11,6 +11,7 @@ export default function StepOne() {
         type="text"
         id="fname"
         name="fname"
+        value={formData.name}
       ></input>
       <label htmlFor="femail">Email Address</label>
       <input

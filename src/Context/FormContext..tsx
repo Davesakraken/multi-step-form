@@ -20,7 +20,7 @@ const FormContext = createContext<FormContextType | null>(null);
 
 export const useFormContext = () => {
   const ctx = useContext(FormContext);
-  invariant(!ctx, "Context called outside of provider");
+  invariant(ctx, "Context called outside of provider");
   return ctx;
 };
 
