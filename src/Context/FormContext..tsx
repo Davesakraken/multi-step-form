@@ -4,10 +4,10 @@ import invariant from "tiny-invariant";
 
 interface FormData {
   name: string;
-  emailAddress: string;
-  phoneNumber: number;
+  email: string;
+  tel: string;
   plan: string;
-  billingCycle: "monthly" | "yearly";
+  billingPeriod: "monthly" | "yearly";
   addons: string[];
 }
 
@@ -26,10 +26,10 @@ export const useFormContext = () => {
 
 const defaultFormValues: FormData = {
   name: "",
-  emailAddress: "",
-  phoneNumber: 0,
+  email: "",
+  tel: "",
   plan: "",
-  billingCycle: "monthly",
+  billingPeriod: "monthly",
   addons: [],
 };
 

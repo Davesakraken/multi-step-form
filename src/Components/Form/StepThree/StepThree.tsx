@@ -1,8 +1,15 @@
 import Addon from "@/src/Components/Form/StepThree/Addon";
-import { useState } from "react";
+import { useFormContext } from "@/src/Context/FormContext.";
+import { useEffect, useState } from "react";
 
 export default function StepThree() {
+  const { formData, setFormData } = useFormContext();
   const [selectedAddons, setSelectedAddons] = useState<string[]>([]);
+
+  useEffect(() => {
+    setFormData({ ...formData, addons: selectedAddons });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedAddons]);
 
   return (
     <section className="flex flex-col gap-4">

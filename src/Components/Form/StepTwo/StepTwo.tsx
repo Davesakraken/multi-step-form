@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BillingPeriodToggle from "@/src/Components/BillingPeriodToggle/BillingPeriodToggle";
 import PricingCard from "@/src/Components/Form/StepTwo/PricingCard";
+import { useFormContext } from "@/src/Context/FormContext.";
 
 export default function StepTwo() {
-  const [billingPeriod, setBillingPeriod] = useState<"monthly" | "yearly">("monthly");
+  const { formData, setFormData } = useFormContext();
   const [selectedPlan, setSelectedPlan] = useState<string>("");
+  const [billingPeriod, setBillingPeriod] = useState<"monthly" | "yearly">("monthly");
+
+  useEffect(() => {
+    setFormData({ ...formData, plan: selectedPlan, billingPeriod: billingPeriod });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedPlan, billingPeriod]);
 
   const handlePrice = (monthlyPrice: number, YearlyPrice: number) =>
     billingPeriod === "monthly" ? monthlyPrice : YearlyPrice;

@@ -1,5 +1,5 @@
 import { useFormContext } from "@/src/Context/FormContext.";
-import { useContext } from "react";
+import { ChangeEvent, useContext } from "react";
 
 export default function StepOne() {
   const { formData, setFormData } = useFormContext();
@@ -12,6 +12,7 @@ export default function StepOne() {
         type="text"
         id="fname"
         name="fname"
+        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
       ></input>
       <label htmlFor="femail">Email Address</label>
       <input
@@ -19,13 +20,15 @@ export default function StepOne() {
         type="email"
         id="femail"
         name="fmail"
+        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
       ></input>
       <label htmlFor="fnumber">Phone Number</label>
       <input
         className="w-full h-10 outline outline-1 rounded-lg p-2 outline-lightGray mt-2"
-        type="tel"
+        type="number"
         id="fnumber"
         name="fnumber"
+        onChange={(e) => setFormData({ ...formData, tel: e.target.value })}
       ></input>
     </>
   );
