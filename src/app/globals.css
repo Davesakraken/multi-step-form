@@ -75,5 +75,5 @@ label {
 }
 
 p {
-  @apply text-base;
+  @apply font-ubuntuReg text-base;
 }
