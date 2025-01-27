@@ -3,6 +3,7 @@ import { useContext } from "react";
 
 export default function StepOne() {
   const { formData, setFormData } = useFormContext();
+
   return (
     <>
       <label htmlFor="fname">Name</label>
@@ -22,7 +23,7 @@ export default function StepOne() {
       <label htmlFor="fnumber">Phone Number</label>
       <input
         className="w-full h-10 outline outline-1 rounded-lg p-2 outline-lightGray mt-2"
-        type="text"
+        type="tel"
         id="fnumber"
         name="fnumber"
       ></input>
