@@ -50,7 +50,6 @@ export default function Form({ stepNumber, setStepNumber }: StepListProps) {
   };
 
   const handleStep = () => {
-    console.log("click");
     stepNumber < 4 && setStepNumber(stepNumber + 1);
   };
 
