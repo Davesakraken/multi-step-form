@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import clsx from "clsx";
 import classes from "@/src/Components/Form/StepTwo/PricingCard.module.scss";
+import { useFormContext } from "@/src/Context/FormContext.";
 
 interface PricingCardProps {
   iconPath: string;
@@ -24,6 +25,9 @@ const PricingCard: React.FC<PricingCardProps> = ({
   setSelectedPlan,
   selectedPlan,
 }) => {
+  const { summaryData, setSummaryData } = useFormContext();
+  const billingPeriodSuffix = billingPeriod === "monthly" ? "/mo" : "/yr";
+
   return (
     <button
       type="button"
@@ -31,6 +35,11 @@ const PricingCard: React.FC<PricingCardProps> = ({
       className={clsx({ [classes.active]: selectedPlan === title }, classes.card, "p-4 rounded-lg")}
       onClick={() => {
         setSelectedPlan(title);
+        setSummaryData({
+          ...summaryData,
+          planPrice: price,
+          billingPeriodSuffix: billingPeriodSuffix,
+        });
       }}
     >
       <Image src={iconPath} width={40} height={40} alt={iconPath.replace(/^.*?\//, "")} />
@@ -39,7 +48,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
         <p className="text-sm text-left">
           {currency}
           {price}
-          {billingPeriod === "monthly" ? "/mo" : "/yr"}
+          {billingPeriodSuffix}
         </p>
         <ul className="text-sm tracking-tight">
           {billingPeriod === "yearly" &&
