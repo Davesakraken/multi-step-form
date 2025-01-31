@@ -25,7 +25,7 @@ export default function StepOne() {
       <label htmlFor="fnumber">Phone Number</label>
       <input
         className="w-full h-10 outline outline-1 rounded-lg p-2 outline-lightGray mt-2"
-        type="number"
+        type="string"
         id="fnumber"
         name="fnumber"
         onChange={(e) => setFormData({ ...formData, tel: e.target.value })}
