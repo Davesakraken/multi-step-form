@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 export default function StepThree() {
   const { formData, setFormData } = useFormContext();
-  const [selectedAddons, setSelectedAddons] = useState<string[]>([]);
+  const [selectedAddons, setSelectedAddons] = useState<{ title: string; value: number }[]>([]);
 
   useEffect(() => {
     setFormData({ ...formData, addons: selectedAddons });

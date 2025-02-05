@@ -1,7 +1,7 @@
 "use client";
 import { createContext, ReactNode, useContext, useState } from "react";
 import invariant from "tiny-invariant";
-import { z } from "zod";
+import { object, z } from "zod";
 
 interface FormData {
   name: string;
@@ -9,7 +9,7 @@ interface FormData {
   tel: string;
   plan: string;
   billingPeriod: "monthly" | "yearly";
-  addons: string[];
+  addons: { title: string; value: number }[];
 }
 
 interface SummaryData {

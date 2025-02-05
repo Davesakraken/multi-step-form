@@ -7,19 +7,27 @@ interface Props {
   title: string;
   description: string;
   price: number;
-  selected: { selectedAddons: string[]; setSelectedAddons: Dispatch<SetStateAction<string[]>> };
+  selected: {
+    selectedAddons: { title: string; value: number }[];
+    setSelectedAddons: Dispatch<SetStateAction<{ title: string; value: number }[]>>;
+  };
 }
 
 function Addon({ title, description, price, selected }: Props) {
-  const addons = selected.selectedAddons;
-  const activeAddon = addons?.includes(title);
+  const addons = selected.selectedAddons; //[{titles, value}]
+  const addonTitles = addons?.map((addon) => addon.title); //[titles]
+  const activeAddon = addonTitles?.includes(title); //boolean
   const setAddons = selected.setSelectedAddons;
 
   const handleSelectAddon = () => {
-    addons.includes(title)
-      ? setAddons(addons.filter((item) => item !== title))
-      : setAddons([...addons, title]);
+    if (activeAddon) {
+      selected.setSelectedAddons(addons.filter((addon) => addon.title !== title));
+    } else {
+      selected.setSelectedAddons([...addons, { title, value: price }]);
+    }
   };
+
+  console.log(selected.selectedAddons);
 
   return (
     <button
