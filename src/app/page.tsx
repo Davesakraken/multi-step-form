@@ -1,6 +1,6 @@
 "use client";
 
-import FormContainer from "@/src/Components/FormContainer";
+import FormContainer from "@/src/Components/common/FormContainer";
 import Form from "@/src/Components/Form/Form";
 import StepList from "@/src/Components/stepList/StepList";
 import { useState } from "react";

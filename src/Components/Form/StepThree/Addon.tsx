@@ -14,10 +14,9 @@ interface Props {
 }
 
 function Addon({ title, description, price, selected }: Props) {
-  const addons = selected.selectedAddons; //[{titles, value}]
-  const addonTitles = addons?.map((addon) => addon.title); //[titles]
-  const activeAddon = addonTitles?.includes(title); //boolean
-  const setAddons = selected.setSelectedAddons;
+  const addons = selected.selectedAddons;
+  const addonTitles = addons?.map((addon) => addon.title);
+  const activeAddon = addonTitles?.includes(title);
 
   const handleSelectAddon = () => {
     if (activeAddon) {

@@ -3,7 +3,7 @@ import clsx from "clsx";
 
 interface MyCoolToggleProps {
   dotPosition: string;
-  setDotPosition: Dispatch<SetStateAction<string>>;
+  setDotPosition: Dispatch<string>;
 }
 
 function MyCoolToggle({ dotPosition, setDotPosition }: MyCoolToggleProps) {

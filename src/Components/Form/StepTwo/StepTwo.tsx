@@ -5,8 +5,8 @@ import { useFormContext } from "@/src/Context/FormContext.";
 
 export default function StepTwo() {
   const { formData, setFormData } = useFormContext();
-  const [selectedPlan, setSelectedPlan] = useState<string>("");
-  const [billingPeriod, setBillingPeriod] = useState<"monthly" | "yearly">("monthly");
+  const [selectedPlan, setSelectedPlan] = useState<string>(formData.plan);
+  const [billingPeriod, setBillingPeriod] = useState<"monthly" | "yearly">(formData.billingPeriod);
 
   useEffect(() => {
     setFormData({ ...formData, plan: selectedPlan, billingPeriod: billingPeriod });
@@ -47,7 +47,7 @@ export default function StepTwo() {
           selectedPlan={selectedPlan}
         />
       </section>
-      <BillingPeriodToggle setBillingPeriod={setBillingPeriod} />
+      <BillingPeriodToggle billingPeriod={billingPeriod} setBillingPeriod={setBillingPeriod} />
     </form>
   );
 }

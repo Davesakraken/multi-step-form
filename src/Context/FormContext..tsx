@@ -59,7 +59,7 @@ const formSchema = z.object({
 export const FormProvider = ({ children }: { children: ReactNode }) => {
   const [formData, setFormData] = useState<FormData>(defaultFormValues);
   const [summaryData, setSummaryData] = useState<SummaryData>(defaultSummaryValues);
-
+  console.table(formData);
   return (
     <FormContext.Provider value={{ formData, setFormData, summaryData, setSummaryData }}>
       {children}

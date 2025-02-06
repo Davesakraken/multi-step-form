@@ -13,6 +13,7 @@ export default function StepOne() {
           type="text"
           id="fname"
           name="fname"
+          value={formData.name}
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
         ></input>
       </div>
@@ -23,6 +24,7 @@ export default function StepOne() {
           type="email"
           id="femail"
           name="fmail"
+          value={formData.email}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
         ></input>
       </div>
@@ -33,6 +35,7 @@ export default function StepOne() {
           type="string"
           id="fnumber"
           name="fnumber"
+          value={formData.tel}
           onChange={(e) => setFormData({ ...formData, tel: e.target.value })}
         ></input>
       </div>
