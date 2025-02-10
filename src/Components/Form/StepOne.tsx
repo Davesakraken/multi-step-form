@@ -1,5 +1,4 @@
 import { useFormContext } from "@/src/Context/FormContext.";
-import { ChangeEvent, useContext } from "react";
 
 export default function StepOne() {
   const { formData, setFormData } = useFormContext();
