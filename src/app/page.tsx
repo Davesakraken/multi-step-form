@@ -1,6 +1,6 @@
 "use client";
 
-import FormContainer from "@/src/Components/common/FormContainer";
+import Container from "@/src/Components/common/Container";
 import Form from "@/src/Components/Form/Form";
 import StepList from "@/src/Components/stepList/StepList";
 import { useState } from "react";
@@ -11,10 +11,10 @@ export default function Home() {
   return (
     <main className="flex min-h-screen items-center justify-center">
       {/* <DarkMode /> */}
-      <FormContainer>
+      <Container>
         <StepList stepNumber={step} />
         <Form stepNumber={step} setStepNumber={setStep} />
-      </FormContainer>
+      </Container>
     </main>
   );
 }
