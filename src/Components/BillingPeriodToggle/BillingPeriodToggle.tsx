@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 import MyCoolToggle from "../common/MyCoolToggle";
 import clsx from "clsx";
 import classes from "./BillingPeriodToggle.module.scss";
