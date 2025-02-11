@@ -26,7 +26,7 @@ interface FormContextType {
   setSummaryData: React.Dispatch<React.SetStateAction<SummaryData>>;
   errors: FormErrors;
   handleFormSubmit: (pageNumber: number) => void;
-  validateForm: (stepNumber: number) => boolean | undefined;
+  validateForm: (stepNumber: number) => boolean;
 }
 
 const FormContext = createContext<FormContextType | null>(null);
@@ -41,7 +41,7 @@ const defaultFormValues: FormData = {
   name: "",
   email: "",
   tel: "",
-  plan: "",
+  plan: "Arcade",
   billingPeriod: "monthly",
   addons: [],
 };
@@ -56,24 +56,18 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
   const [summaryData, setSummaryData] = useState<SummaryData>(defaultSummaryValues);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const pageOneSchema = z.object({
+  const validationSchema = z.object({
     name: z.string().min(1, "Name is required"),
     email: z.string().email("Invalid email format"),
     tel: z.string().min(10, "Phone number must be at least 10 digits"),
   });
 
-  const pageTwoSchema = z.object({
-    plan: z.string(),
-  });
-
   const validateForm = (stepNumber: number) => {
     let result;
     if (stepNumber === 1) {
-      result = pageOneSchema.safeParse(formData);
-    } else if (stepNumber === 2) {
-      result = pageTwoSchema.safeParse(formData);
+      result = validationSchema.safeParse(formData);
     } else {
-      return;
+      return true;
     }
 
     if (!result.success) {
