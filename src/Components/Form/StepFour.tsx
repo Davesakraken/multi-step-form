@@ -1,11 +1,6 @@
 import { useFormContext } from "@/src/Context/FormContext.";
 
 export default function StepFour() {
-  /* 
-  1. display plan and billingPeriod with correct price
-  2. map over addons with correct price
-  3. Add plan value and addons for total per month or year
-  */
   const { formData, summaryData } = useFormContext();
 
   const initialValue = 0;

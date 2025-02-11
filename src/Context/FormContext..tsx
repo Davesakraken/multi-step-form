@@ -47,7 +47,7 @@ const defaultFormValues: FormData = {
 };
 
 const defaultSummaryValues: SummaryData = {
-  planPrice: 0,
+  planPrice: 9,
   billingPeriodSuffix: "/mo",
 };
 

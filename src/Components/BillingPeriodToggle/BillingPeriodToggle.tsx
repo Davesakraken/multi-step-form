@@ -14,8 +14,6 @@ function BillingPeriodToggle({ billingPeriod, setBillingPeriod }: BillingPeriodT
   const setDotPosition = (value: string) =>
     value === "left" ? setBillingPeriod("monthly") : setBillingPeriod("yearly");
 
-  console.log();
-
   return (
     <section className="flex justify-center items-center gap-4 bg-magnolia p-3 rounded-lg">
       <p className={clsx(classes.default, { [classes.inactive]: billingPeriod === "yearly" })}>
