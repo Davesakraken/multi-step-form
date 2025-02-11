@@ -3,10 +3,13 @@ import { useFormContext } from "@/src/Context/FormContext.";
 import { useEffect, useState } from "react";
 
 export default function StepThree() {
-  const { formData, setFormData } = useFormContext();
+  const { formData, setFormData, summaryData } = useFormContext();
   const [selectedAddons, setSelectedAddons] = useState<{ title: string; value: number }[]>(
     formData.addons
   );
+
+  const handleAddonPrice = (period: any, monthly_price: number, yearly_price: number) =>
+    period === "monthly" ? monthly_price : yearly_price;
 
   useEffect(() => {
     setFormData({ ...formData, addons: selectedAddons });
@@ -18,20 +21,23 @@ export default function StepThree() {
       <Addon
         title="Online service"
         description="Access to multiplayer games"
-        price={1}
+        price={handleAddonPrice(formData.billingPeriod, 1, 10)}
         selected={{ selectedAddons, setSelectedAddons }}
+        suffix={summaryData.billingPeriodSuffix}
       />
       <Addon
         title="Larger storage"
         description="Extra 1TB of cloud save"
-        price={2}
+        price={handleAddonPrice(formData.billingPeriod, 2, 20)}
         selected={{ selectedAddons, setSelectedAddons }}
+        suffix={summaryData.billingPeriodSuffix}
       />
       <Addon
         title="Customizable Profile"
         description="Custom theme on your profile"
-        price={2}
+        price={handleAddonPrice(formData.billingPeriod, 2, 20)}
         selected={{ selectedAddons, setSelectedAddons }}
+        suffix={summaryData.billingPeriodSuffix}
       />
     </section>
   );

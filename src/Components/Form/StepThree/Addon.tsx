@@ -11,9 +11,10 @@ interface Props {
     selectedAddons: { title: string; value: number }[];
     setSelectedAddons: Dispatch<SetStateAction<{ title: string; value: number }[]>>;
   };
+  suffix: string;
 }
 
-function Addon({ title, description, price, selected }: Props) {
+function Addon({ title, description, price, selected, suffix }: Props) {
   const addons = selected.selectedAddons;
   const addonTitles = addons?.map((addon) => addon.title);
   const activeAddon = addonTitles?.includes(title);
@@ -42,7 +43,10 @@ function Addon({ title, description, price, selected }: Props) {
           <p className="text-coolGray">{description}</p>
         </div>
       </div>
-      <p className="mr-2 text-purplishBlue">+${price}/mo</p>
+      <p className="mr-2 text-purplishBlue">
+        +${price}
+        {suffix}
+      </p>
     </button>
   );
 }
