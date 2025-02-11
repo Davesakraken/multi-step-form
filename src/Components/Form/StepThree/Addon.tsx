@@ -27,8 +27,6 @@ function Addon({ title, description, price, selected, suffix }: Props) {
     }
   };
 
-  console.log(selected.selectedAddons);
-
   return (
     <button
       className={clsx({ [classes.active]: activeAddon }, classes.addon)}
