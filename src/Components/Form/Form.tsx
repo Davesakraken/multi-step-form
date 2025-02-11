@@ -4,6 +4,7 @@ import StepThree from "@/src/Components/Form/StepThree/StepThree";
 import StepTwo from "@/src/Components/Form/StepTwo/StepTwo";
 import { Dispatch, SetStateAction } from "react";
 import FormStep from "./FormStep";
+import { useFormContext } from "@/src/Context/FormContext.";
 
 interface StepListProps {
   stepNumber: number;
@@ -11,6 +12,8 @@ interface StepListProps {
 }
 
 export default function Form({ stepNumber, setStepNumber }: StepListProps) {
+  const { validateForm } = useFormContext();
+
   const currentForm = () => {
     switch (stepNumber) {
       case 1:
@@ -50,7 +53,9 @@ export default function Form({ stepNumber, setStepNumber }: StepListProps) {
   };
 
   const handleStep = () => {
-    stepNumber < 4 && setStepNumber(stepNumber + 1);
+    if (validateForm(stepNumber) && stepNumber < 4) {
+      setStepNumber(stepNumber + 1);
+    }
   };
 
   return (
