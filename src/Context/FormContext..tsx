@@ -17,14 +17,16 @@ interface SummaryData {
   billingPeriodSuffix: "/mo" | "/yr";
 }
 
+type FormErrors = Partial<Record<keyof FormData, string>>;
+
 interface FormContextType {
   formData: FormData;
   setFormData: React.Dispatch<React.SetStateAction<FormData>>;
   summaryData: SummaryData;
   setSummaryData: React.Dispatch<React.SetStateAction<SummaryData>>;
-  errors: {};
-  handleFormSubmit: () => void;
-  validateForm: (stepNumber: number) => boolean;
+  errors: FormErrors;
+  handleFormSubmit: (pageNumber: number) => void;
+  validateForm: (stepNumber: number) => boolean | undefined;
 }
 
 const FormContext = createContext<FormContextType | null>(null);
@@ -61,14 +63,14 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
   });
 
   const pageTwoSchema = z.object({
-    tel: z.string().min(10, "Phone number must be at least 10 digits"),
+    plan: z.string(),
   });
 
-  const validateForm = (pageNumber: number) => {
+  const validateForm = (stepNumber: number) => {
     let result;
-    if (pageNumber === 1) {
+    if (stepNumber === 1) {
       result = pageOneSchema.safeParse(formData);
-    } else if (pageNumber === 2) {
+    } else if (stepNumber === 2) {
       result = pageTwoSchema.safeParse(formData);
     } else {
       return;
@@ -89,8 +91,8 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
     return true;
   };
 
-  const handleFormSubmit = (pageNumber: number) => {
-    if (validateForm(pageNumber)) {
+  const handleFormSubmit = (stepNumber: number) => {
+    if (validateForm(stepNumber)) {
       console.log("form submitted successfully!");
     } else {
       console.log("validation errors", errors);
