@@ -10,7 +10,6 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen items-center justify-center">
-      {/* <DarkMode /> */}
       <Container>
         <StepList stepNumber={step} />
         <Form stepNumber={step} setStepNumber={setStep} />
