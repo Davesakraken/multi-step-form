@@ -21,6 +21,7 @@ export default function StepOne() {
           name="fname"
           value={formData.name}
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+          placeholder="e.g. Stephen King"
         ></input>
       </div>
       <div className="mt-4">
@@ -37,6 +38,7 @@ export default function StepOne() {
           name="fmail"
           value={formData.email}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+          placeholder="e.g. stephenking@lorem.com"
         ></input>
       </div>
       <div className="mt-4">
@@ -53,6 +55,7 @@ export default function StepOne() {
           name="fnumber"
           value={formData.tel}
           onChange={(e) => setFormData({ ...formData, tel: e.target.value })}
+          placeholder="e.g. +1 234 567 890"
         ></input>
       </div>
     </>
