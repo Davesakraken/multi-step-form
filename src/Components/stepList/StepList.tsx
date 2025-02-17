@@ -11,7 +11,7 @@ export default function StepList({ stepNumber }: StepListProps) {
   const listItems = ["YOUR INFO", "SELECT PLAN", "ADD-ONS", "SUMMARY"];
 
   return (
-    <ol className="flex flex-col w-[20rem] h-[100%] text-white rounded-lg bg-sidebar-desktop bg-cover p-8">
+    <ol className="flex flex-col w-[15rem] h-[100%] text-white rounded-lg bg-sidebar-desktop bg-cover p-8">
       {listItems.map((item, idx) => (
         <li
           key={idx}
