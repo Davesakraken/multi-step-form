@@ -1,7 +1,8 @@
-import StepFour from "@/src/Components/Form/StepFour";
 import StepOne from "@/src/Components/Form/StepOne";
-import StepThree from "@/src/Components/Form/StepThree/StepThree";
 import StepTwo from "@/src/Components/Form/StepTwo/StepTwo";
+import StepThree from "@/src/Components/Form/StepThree/StepThree";
+import StepFour from "@/src/Components/Form/StepFour";
+import StepFive from "@/src/Components/Form/StepFive";
 import { Dispatch, SetStateAction } from "react";
 import FormStep from "./FormStep";
 import { useFormContext } from "@/src/Context/FormContext.";
@@ -49,11 +50,17 @@ export default function Form({ stepNumber, setStepNumber }: StepListProps) {
             <StepFour />
           </FormStep>
         );
+      case 5:
+        return (
+          <FormStep title="" description="">
+            <StepFive />
+          </FormStep>
+        );
     }
   };
 
   const handleStep = () => {
-    if (validateForm(stepNumber) && stepNumber < 4) {
+    if (validateForm(stepNumber) && stepNumber < 5) {
       setStepNumber(stepNumber + 1);
     }
   };
@@ -65,7 +72,7 @@ export default function Form({ stepNumber, setStepNumber }: StepListProps) {
         <section className="flex justify-between gap-5">
           <button
             className="disabled:opacity-0 font-semibold text-sm"
-            disabled={stepNumber === 1}
+            disabled={stepNumber === 1 || stepNumber === 5}
             onClick={() => {
               setStepNumber(stepNumber - 1);
             }}
@@ -73,8 +80,9 @@ export default function Form({ stepNumber, setStepNumber }: StepListProps) {
             Go Back
           </button>
           <button
-            className="bg-marineBlue text-white px-6 py-3 rounded-lg font-semibold text-sm"
+            className="bg-marineBlue text-white px-6 py-3 rounded-lg font-semibold text-sm disabled:opacity-0"
             onClick={handleStep}
+            disabled={stepNumber === 5}
           >
             {stepNumber === 4 ? "Submit" : "Next Step"}
           </button>
