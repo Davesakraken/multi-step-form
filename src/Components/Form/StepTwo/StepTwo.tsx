@@ -36,7 +36,7 @@ export default function StepTwo() {
 
   return (
     <form>
-      <section className="flex justify-around mb-7">
+      <section className="flex justify-between mb-7">
         <PricingCard
           title="Arcade"
           price={calculatePrice(9, 90)}
