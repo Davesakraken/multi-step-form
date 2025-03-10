@@ -6,7 +6,7 @@ export default function MultiStepForm() {
   const [step, setStep] = useState(1);
 
   return (
-    <section className="flex h-[100vh] w-full md:h-[35rem] md:w-[53rem] bg-white md:rounded-xl p-5 justify-between">
+    <section className="flex flex-col md:flex-row justify-between h-[100vh] w-full md:h-[35rem] md:w-[53rem] bg-white md:rounded-xl md:p-5 ">
       <StepList stepNumber={step} />
       <Form stepNumber={step} setStepNumber={setStep} />
     </section>
