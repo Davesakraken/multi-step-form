@@ -52,7 +52,7 @@ export default function Form({ stepNumber, setStepNumber }: StepListProps) {
         );
       case 5:
         return (
-          <FormStep title="" description="">
+          <FormStep>
             <StepFive />
           </FormStep>
         );
@@ -67,7 +67,7 @@ export default function Form({ stepNumber, setStepNumber }: StepListProps) {
 
   return (
     <>
-      <section className="flex flex-col flex-grow justify-between px-16 pt-9 pb-3">
+      <section className="flex flex-col flex-grow justify-between md:px-16 px-6 pt-9 pb-3">
         <div>{currentForm()}</div>
         <section className="flex justify-between gap-5">
           <button
