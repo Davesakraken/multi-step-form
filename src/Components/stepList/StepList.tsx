@@ -13,8 +13,8 @@ export default function StepList({ stepNumber }: StepListProps) {
     "md:rounded-lg md:p-8 md:bg-sidebar-desktop md:items-start md:justify-start md:min-w-[15.5rem] md:h-full";
 
   return (
-    <section className={`flex justify-center bg-sidebar-mobile bg-cover h-44 ${desktopClasses}`}>
-      <ol className="flex flex-row md:flex-col text-white gap-6 md:gap-0 mb-14">
+    <section className={`flex justify-center bg-cover mt-7 ${desktopClasses} z-10`}>
+      <ol className="flex flex-row md:flex-col text-white gap-6 md:gap-0 ">
         {listItems.map((item, idx) => (
           <li
             key={idx}
