@@ -14,7 +14,7 @@ export default function StepList({ stepNumber }: StepListProps) {
 
   return (
     <section className={`flex justify-center bg-sidebar-mobile bg-cover h-44 ${desktopClasses}`}>
-      <ol className="flex flex-row md:flex-col text-white gap-6 md:gap-0 mb-12">
+      <ol className="flex flex-row md:flex-col text-white gap-6 md:gap-0 mb-14">
         {listItems.map((item, idx) => (
           <li
             key={idx}
