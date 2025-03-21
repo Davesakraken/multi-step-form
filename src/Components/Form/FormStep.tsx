@@ -12,7 +12,7 @@ export default function FormStep({ title, description, children }: FormStepProps
   return (
     <>
       <section
-        className={`relative -top-16 bg-white rounded-lg p-5 pt-8 pb-10 drop-shadow-lg ${desktopStyles}`}
+        className={`relative -top-24 bg-white rounded-lg p-5 pt-8 pb-10 drop-shadow-lg ${desktopStyles}`}
       >
         <h1>{title}</h1>
         <h2 className="mt-2">{description}</h2>
