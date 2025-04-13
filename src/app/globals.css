@@ -30,15 +30,14 @@
   --font-size-3xl: 1.953rem;
   --font-size-4xl: 2.441rem;
   --font-size-5xl: 3.052rem;
-
-  --background-sidebar-desktop: url("/images/bg-sidebar-desktop.svg");
-  --background-sidebar-mobile: url("/images/bg-sidebar-mobile.svg");
-  --background-gradient-radial: radial-gradient(var(--tw-gradient-stops));
-  --background-gradient-conic: conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops));
 }
 
 @utility background-sidebar-desktop {
   background-image: url("/images/bg-sidebar-desktop.svg");
+}
+
+@utility background-sidebar-mobile {
+  background-image: url("/images/bg-sidebar-mobile.svg");
 }
 
 @utility text-balance {
