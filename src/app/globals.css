@@ -1,30 +1,69 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@theme {
+  --screen-sm: 640px;
+  --screen-md: 860px;
+  --screen-lg: 1024px;
+  --screen-xl: 1280px;
+
+  --color-marineBlue: hsl(213, 96%, 18%);
+  --color-purplishBlue: hsl(243, 100%, 62%);
+  --color-pastelBlue: hsl(228, 100%, 84%);
+  --color-lightBlue: hsl(206, 94%, 87%);
+  --color-strawberryRed: hsl(354, 84%, 57%);
+  --color-coolGray: hsl(231, 11%, 63%);
+  --color-lightGray: hsl(229, 24%, 87%);
+  --color-magnolia: hsl(217, 100%, 97%);
+  --color-alabaster: hsl(231, 100%, 99%);
+  --color-white: hsl(0, 0%, 100%);
+
+  --font-ubuntuReg: "Ubuntu-Regular", sans-serif;
+  --font-ubuntuMed: "Ubuntu-Medium", sans-serif;
+  --font-ubuntuBold: "Ubuntu-Bold", sans-serif;
+
+  --font-size-xs: 0.7rem;
+  --font-size-sm: 0.8rem;
+  --font-size-base: 0.9rem;
+  --font-size-lg: 1rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.563rem;
+  --font-size-3xl: 1.953rem;
+  --font-size-4xl: 2.441rem;
+  --font-size-5xl: 3.052rem;
+
+  --background-sidebar-desktop: url("/images/bg-sidebar-desktop.svg");
+  --background-sidebar-mobile: url("/images/bg-sidebar-mobile.svg");
+  --background-gradient-radial: radial-gradient(var(--tw-gradient-stops));
+  --background-gradient-conic: conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops));
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+@utility background-sidebar-desktop {
+  background-image: url("/images/bg-sidebar-desktop.svg");
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
-    rgb(var(--background-start-rgb));
+@utility text-balance {
+  text-wrap: balance;
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  :root {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root {
+      --foreground-rgb: 255, 255, 255;
+      --background-start-rgb: 0, 0, 0;
+      --background-end-rgb: 0, 0, 0;
+    }
+  }
+
+  body {
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
+      rgb(var(--background-start-rgb));
   }
 }
 

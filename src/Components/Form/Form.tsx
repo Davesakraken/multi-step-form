@@ -68,7 +68,7 @@ export default function Form({ stepNumber, setStepNumber }: StepListProps) {
   return (
     <>
       <div className="absolute bg-sidebar-mobile bg-cover w-[100vw] h-40 md:hidden" />
-      <section className="flex flex-col flex-grow justify-between md:px-16 px-6 pt-9 pb-3 ">
+      <section className="flex flex-col grow justify-between md:px-16 px-6 pt-9 pb-3 ">
         <div>{currentForm()}</div>
         <section className="flex justify-between gap-5">
           <button
