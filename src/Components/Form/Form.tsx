@@ -5,7 +5,6 @@ import StepFour from "@/src/Components/Form/StepFour";
 import StepFive from "@/src/Components/Form/StepFive";
 import { Dispatch, SetStateAction } from "react";
 import FormStep from "./FormStep";
-import { useFormContext } from "@/src/Context/FormContext.";
 import Footer from "./Footer";
 
 interface StepListProps {
@@ -14,8 +13,6 @@ interface StepListProps {
 }
 
 export default function Form({ stepNumber, setStepNumber }: StepListProps) {
-  const { validateForm } = useFormContext();
-
   const currentForm = () => {
     switch (stepNumber) {
       case 1:
