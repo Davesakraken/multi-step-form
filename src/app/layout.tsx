@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { FormProvider } from "../Context/FormContext.";
 
@@ -15,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-white">
+      <body className="bg-white md:bg-lightGray">
         <FormProvider>{children}</FormProvider>
       </body>
     </html>
