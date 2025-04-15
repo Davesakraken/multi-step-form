@@ -41,8 +41,7 @@ body {
   font-display: swap;
   src: url("../../public/fonts/Ubuntu-Medium.ttf");
 }
-
-@font-face {
+`@font-face {
   font-family: "Ubuntu-Bold";
   font-style: normal;
   font-display: swap;
