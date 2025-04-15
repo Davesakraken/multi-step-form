@@ -6,6 +6,7 @@ import StepFive from "@/src/Components/Form/StepFive";
 import { Dispatch, SetStateAction } from "react";
 import FormStep from "./FormStep";
 import { useFormContext } from "@/src/Context/FormContext.";
+import Footer from "./Footer";
 
 interface StepListProps {
   stepNumber: number;
@@ -59,36 +60,18 @@ export default function Form({ stepNumber, setStepNumber }: StepListProps) {
     }
   };
 
-  const handleStep = () => {
-    if (validateForm(stepNumber) && stepNumber < 5) {
-      setStepNumber(stepNumber + 1);
-    }
-  };
-
   return (
     <>
       <div className="absolute bg-sidebar-mobile bg-cover w-[100vw] h-40 md:hidden" />
-      <section className="flex flex-col flex-grow justify-between md:px-16 px-6 pt-9 pb-3 ">
+      <section className="flex flex-col flex-grow justify-between md:px-16 px-6 pt-9 pb-3 md:bg-white bg-lightGray">
         <div>{currentForm()}</div>
-        <section className="flex justify-between gap-5">
-          <button
-            className="disabled:opacity-0 font-semibold text-sm"
-            disabled={stepNumber === 1 || stepNumber === 5}
-            onClick={() => {
-              setStepNumber(stepNumber - 1);
-            }}
-          >
-            Go Back
-          </button>
-          <button
-            className="bg-marineBlue text-white px-6 py-3 rounded-lg font-semibold text-sm disabled:opacity-0"
-            onClick={handleStep}
-            disabled={stepNumber === 5}
-          >
-            {stepNumber === 4 ? "Submit" : "Next Step"}
-          </button>
-        </section>
+        <div className="hidden md:block">
+          <Footer stepNumber={stepNumber} setStepNumber={setStepNumber} />
+        </div>
       </section>
+      <div className="md:hidden p-5">
+        <Footer stepNumber={stepNumber} setStepNumber={setStepNumber} />
+      </div>
     </>
   );
 }

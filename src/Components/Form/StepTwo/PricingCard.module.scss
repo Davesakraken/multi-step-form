@@ -1,9 +1,4 @@
 .card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 130px;
-  min-height: 155px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   border: 1px solid theme("colors.lightGray");

@@ -32,7 +32,11 @@ const PricingCard: React.FC<PricingCardProps> = ({
     <button
       type="button"
       aria-pressed={selectedPlan === title}
-      className={clsx({ [classes.active]: selectedPlan === title }, classes.card, "p-4 rounded-lg")}
+      className={clsx(
+        { [classes.active]: selectedPlan === title },
+        classes.card,
+        "flex md:flex-col md:justify-between gap-4 p-4 rounded-lg md:w-[8.5rem] md:h-[10.5rem] my-2"
+      )}
       onClick={() => {
         setSelectedPlan(title);
         setSummaryData({
