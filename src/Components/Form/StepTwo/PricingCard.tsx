@@ -54,7 +54,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
           {price}
           {billingPeriodSuffix}
         </p>
-        <ul className="text-sm tracking-tight">
+        <ul className="text-left text-sm tracking-tight">
           {billingPeriod === "yearly" &&
             features?.map((feature, index) => <li key={index}>{feature}</li>)}
         </ul>
