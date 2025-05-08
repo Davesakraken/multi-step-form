@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { FormProvider } from "../Context/FormContext.";
+import { StepProvider } from "../Context/StepContext";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,7 +16,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-white md:bg-lightGray">
-        <FormProvider>{children}</FormProvider>
+        <StepProvider>
+          <FormProvider>{children}</FormProvider>
+        </StepProvider>
       </body>
     </html>
   );

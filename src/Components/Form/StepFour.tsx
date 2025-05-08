@@ -1,7 +1,9 @@
 import { useFormContext } from "@/src/Context/FormContext.";
+import { useStepContext } from "@/src/Context/StepContext";
 
 export default function StepFour() {
   const { formData, summaryData } = useFormContext();
+  const { setStepNumber } = useStepContext();
 
   const initialValue = 0;
   const addonTotal = formData.addons.reduce((acc, current) => acc + current.value, initialValue);
@@ -15,7 +17,9 @@ export default function StepFour() {
             <h2 className="font-bold">
               {formData.plan} ({formData.billingPeriod})
             </h2>
-            <p>Change</p>
+            <p className="hover:underline hover:cursor-pointer" onClick={() => setStepNumber(2)}>
+              Change
+            </p>
           </div>
           <p className="font-bold text-lg text-marineBlue">{`$${summaryData.planPrice}${summaryData.billingPeriodSuffix}`}</p>
         </div>
